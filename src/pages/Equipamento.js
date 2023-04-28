@@ -21,7 +21,7 @@ export default function Equipamento(){
       const response = await fetch(`https://viacep.com.br/ws/${formattedCep}/json/`);
       const data = await response.json();
       setData(data);
-      setFrete(data.uf === 'sp' ? 'R$ 0,00' : 'R$ 50,00');
+      setFrete(data.uf === 'sp' ? 'R$ 0,00' : 'R$ 35,00');
     } catch (error) {
       console.error(error);
     } finally {

@@ -17,3 +17,30 @@ Aula-13/04/2023
 * importando react-hook- form
 * fetch caminho da Api
 * criando uma api
+
+20/04/2023
+*estilizando componente Api
+*https://jsonplaceholder.typicode.com/guide/
+*instalando o axios npm install axios
+*importanto e utilizando axios
+*criando função assincrona( async) 
+*chamando a api com await
+*usando o effect para retornar uma função
+*usando o map para percorrer e trazer cada item da api no array
+*usando condiconal ternária(if ?  e else :)
+
+
+24/04/2023
+
+* Como funciona o localStorage
+* como funciona o SessionStorage
+
+
+27/04/2023
+*criando arquivo json local
+*instalando o server json npm insall json-server
+*no package e dentro do scripts colocar "webdev":"json-server --watch db.json --port 5000"
+*para rodar o servido do arquivo ---- npm run webdev -----
+*consumindo a api pelo arquivo usando fetch
+*adcionando o localstorage no projeto
+*estilizando o projeto

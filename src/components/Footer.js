@@ -9,7 +9,7 @@ function Footer() {
                 <FaFacebook />
                 <FaInstagram />
             </ul>
-            RM97483 Felipe & RM97068 Gustavo
+            RM97483 Felipe Merlo & RM97068 Gustavo Sanches
         </footer>
     )
 }

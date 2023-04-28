@@ -22,7 +22,7 @@ export default function Equipamento(){
             setLoading(true);
             setData(data);
             if (data.uf === 'sp') setFrete("R$ 00,00");
-            else setFrete("R$ 50,00");
+            else setFrete("R$20,00");
           }).finally(() => setLoading(false))
       }
 

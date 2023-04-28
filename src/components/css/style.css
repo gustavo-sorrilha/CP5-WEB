@@ -1,0 +1,178 @@
+#menu, footer {
+   background-color: #0057B4;
+   color: #fff;
+   font-size: 1.2rem;
+   padding: 2rem;
+   text-align: center;
+}
+
+#menu ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+#menu li {
+   display: inline-block;
+   margin-right: 1rem;
+}
+
+#menu li:last-child {
+   margin-right: 0;
+}
+
+#menu a {
+   color: #fff;
+   text-decoration: none;
+   padding: 0.5rem;
+   transition: all 200ms;
+}
+
+#menu a:hover {
+   background-color: #fff;
+   color: #262626;
+}
+
+footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   padding: 1rem;
+ }
+ 
+ .rsocial {
+   display: flex;
+   align-items: center;
+
+   width: 200px;
+   margin: 0 auto;
+ }
+
+ .rsocial > svg {
+  width: 20px;
+  height: 20px;
+  margin: 5px 10px;
+ }
+ 
+
+ /* Componente Camisetas*/
+ main {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   align-items: center;
+   padding-bottom: 100px;
+ }
+ 
+ .camisetas {
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+ }
+ 
+ .produto {
+   width: 300px;
+   margin: 20px;
+   text-align: center;
+ }
+ 
+ .produto img {
+   max-width: 200px;
+   max-height: 200px;
+   height: auto;
+ }
+
+ .produto p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.produto span {
+  font-size: 18px;
+  font-weight: bold;
+}
+ 
+.calcados {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Componente Home*/
+.home {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.nome {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #0057B4;
+
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  padding: 12px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  width: 300px;
+  align-self: flex-end;
+}
+
+button:hover {
+  background-color: #0077ff;
+}
+
+input[type="email"] {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+#userEmail {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#userEmail span {
+  font-weight: bold;
+}
+
+
+ /*Componente Footer*/
+
+ .rsocial{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    list-style: none;
+ }
+
+ .rsocial li{
+    margin: 0 1em;
+ }
+
+ .rsocial svg{
+    font-size:30px;
+    cursor: pointer;
+    color:bisque
+ }

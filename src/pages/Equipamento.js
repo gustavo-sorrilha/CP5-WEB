@@ -11,25 +11,26 @@ export default function Equipamento(){
   
     const onSubmit = (e) => setCep(e.cep);
 
-    useEffect(() => {
-      const checkCep = async () => {
-        const formattedCep = cep.replace(/\D/g, '');
-        console.log(formattedCep);
+   useEffect(() => {
+  const checkCep = async () => {
+    const formattedCep = cep.replace(/\D/g, '');
+    console.log(formattedCep);
 
-        fetch(`https://viacep.com.br/ws/${formattedCep}/json/`)
-          .then(res => res.json())
-          .then(data => {
-            setLoading(true);
-            setData(data);
-            if (data.uf === 'sp') setFrete("R$ 00,00");
-            else setFrete("R$20,00");
-          }).finally(() => setLoading(false))
-      }
+    try {
+      setLoading(true);
+      const response = await fetch(`https://viacep.com.br/ws/${formattedCep}/json/`);
+      const data = await response.json();
+      setData(data);
+      setFrete(data.uf === 'sp' ? 'R$ 0,00' : 'R$ 50,00');
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      checkCep();
-    }, [cep]);
-  
-    
+  checkCep();
+}, [cep]);
   
     return (
       <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,28 +1,58 @@
-import Equipamento from '../components/Equipamento';
-import Produto from '../components/Produto';
-import '../components/css/style.css';
+import React, { useEffect, useState } from "react";
+import { useForm } from 'react-hook-form';
 
-import bola from '../assets/bola.webp';
-import skate from '../assets/skate.webp';
-import luva from '../assets/luva.webp';
-import tenis from '../assets/tenis.webp';
-import raquete from '../assets/raquete.webp';
-import bicicleta from '../assets/bicicleta.webp';
+const Equipamento = () => {
+  const { register, handleSubmit } = useForm();
+  const [frete, setFrete] = useState('R$0.00');
+  const [cep, setCep] = useState('');
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
 
-function Equipamentos() {
+  const onSubmit = (e) => setCep(e.cep);
+
+  useEffect(() => {
+    const checkCep = async () => {
+      const formattedCep = cep.replace(/\D/g, '');
+      console.log(formattedCep);
+
+      try {
+        setLoading(true);
+        const response = await fetch(`https://viacep.com.br/ws/${formattedCep}/json/`);
+        const data = await response.json();
+        setData(data);
+        setFrete(data.uf === 'sp' ? 'R$ 0,00' : 'R$ 35,00');
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkCep();
+  }, [cep]);
+
   return (
-    <main>
-      <div className="equipamentos">
-        <Produto imagem={bola} nomeProduto="Bola de Futebol" preco="R$ 99,90" />
-        <Produto imagem={skate} nomeProduto="Skate Completo" preco="R$ 399,90" />
-        <Produto imagem={luva} nomeProduto="Luvas de Boxe" preco="R$ 149,00" />
-        <Produto imagem={tenis} nomeProduto="Tênis para Corrida" preco="R$ 279,00" />
-        <Produto imagem={raquete} nomeProduto="Raquete de Tênis" preco="R$ 189,90" />
-        <Produto imagem={bicicleta} nomeProduto="Bicicleta Mountain Bike" preco="R$ 2.499,00" />
-      </div>
-      <Equipamento />
-    </main>
-  );
-}
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>Consumindo uma API</h1>
 
-export default Equipamentos;
+      <fieldset>
+        <label htmlFor="cep">Informe seu CEP:</label>
+        <input type="text" name="cep" {...register("cep")} />
+      </fieldset>
+
+      {!!data.localidade && (
+        <>
+          <p>Valor do frete: {frete}</p>
+          <p>Estado: {data.localidade}</p>
+          <p>Rua: {data.logradouro}</p>
+          <p>Bairro: {data.bairro}</p>
+        </>
+      )}
+
+      <button type="submit" id="enviar">{loading ? "Carregando ..." : "Enviar"}</button>
+    </form>
+  );
+};
+
+export default Equipamento;
+
